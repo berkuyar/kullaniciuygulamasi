@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.KrediHesaplamaPage"
+             Title="Kredi Hesapla"
+             BackgroundColor="#2C3E50">
+
+    <!-- ScrollView, içerikleri kaydırılabilir yapmak için kullanılır. -->
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="25">
+
+            <!-- Kredi Türü Seçimi -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- Kredi türü için başlık etiketi -->
+                    <Label Text="Kredi Türü 🏦" FontSize="18" TextColor="#2C3E50"/>
+                    <!-- Kredi türü seçimi için Picker (Açılır Menü) -->
+                    <Picker x:Name="KrediTurPicker"
+                            Title="Kredi türü seçin"
+                            TextColor="#2C3E50">
+                        <Picker.Items>
+                            <!-- Kredi türü seçenekleri -->
+                            <x:String>İhtiyaç Kredisi</x:String>
+                            <x:String>Taşıt Kredisi</x:String>
+                            <x:String>Konut Kredisi</x:String>
+                            <x:String>Ticari Kredisi</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </Frame>
+
+            <!-- Kredi Tutarı Girişi -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- Kredi tutarı için başlık etiketi -->
+                    <Label Text="Kredi Tutarı 💵" FontSize="18" TextColor="#2C3E50"/>
+                    <!-- Kredi tutarı girişi için Entry (Metin Kutusu) -->
+                    <Entry x:Name="KrediTutariEntry"
+                           Keyboard="Numeric"
+                           Placeholder="Örn: 10000"
+                           TextColor="#2C3E50"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Faiz Oranı Girişi -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- Faiz oranı için başlık etiketi -->
+                    <Label Text="Faiz Oranı(%) 📉" FontSize="18" TextColor="#2C3E50"/>
+                    <!-- Faiz oranı girişi için Entry (Metin Kutusu) -->
+                    <Entry x:Name="FaizOraniEntry"
+                           Keyboard="Numeric"
+                           Placeholder="Örn: 1.59"
+                           TextColor="#2C3E50"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Vade (Ay) Seçimi -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- Vade başlık etiketi -->
+                    <Label Text="Vade (Ay) 🗓️" FontSize="18" TextColor="#2C3E50"/>
+                    <!-- Vade seçimi için Slider (Kaydırıcı) -->
+                    <Slider x:Name="VadeSlider" Minimum="12" Maximum="120" ValueChanged="VadeSlider_ValueChanged"/>
+                    <!-- Vade bilgisini gösterecek etiket -->
+                    <Label x:Name="VadeLabel"
+                           Text="Vade: 12 Ay"
+                           FontSize="16"
+                           HorizontalOptions="Center"
+                           TextColor="#555"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Hesapla Butonu -->
+            <Button Text="Hesapla 🔢"
+                    Clicked="HesaplaButton_Clicked"
+                    BackgroundColor="#E67E22"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="12"
+                    HeightRequest="50"/>
+
+            <!-- Sonuç Etiketleri -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <!-- Sonuç etiketleri -->
+                    <Label x:Name="SonucLabel" FontSize="18" TextColor="#27AE60"/>
+                    <Label x:Name="ToplamOdemeLabel" FontSize="18" TextColor="#2980B9"/>
+                    <Label x:Name="ToplamFaizLabel" FontSize="18" TextColor="#C0392B"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.VKİPage"
+             Title="VKI Sayfası"
+             BackgroundColor="#2C3E50">
+
+    <!-- ScrollView, içerikleri kaydırılabilir yapmak için kullanılır -->
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="25">
+
+            <!-- Kilo (kg) Seçimi -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- Kilo simgesi -->
+                    <Image Source="kilo.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"/>
+                    <!-- Kilo etiketi -->
+                    <Label Text="Kilo (kg)" FontSize="18" TextColor="#2C3E50"/>
+                    <!-- Kilo değeri için slider -->
+                    <Slider x:Name="KiloSlider"
+                            Minimum="30" Maximum="200"
+                            ValueChanged="Slider_ValueChanged"
+                            ThumbColor="#E74C3C" MinimumTrackColor="#E74C3C"
+                            MaximumTrackColor="#D0D3D4"/>
+                    <!-- Kilo değeri etiketi -->
+                    <Label x:Name="KiloLabel" Text="Kilo: 30 kg" FontSize="16" HorizontalOptions="Center" TextColor="#555"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Boy (cm) Seçimi -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- Boy simgesi -->
+                    <Image Source="boy.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"/>
+                    <!-- Boy etiketi -->
+                    <Label Text="Boy (cm)" FontSize="18" TextColor="#2C3E50"/>
+                    <!-- Boy değeri için slider -->
+                    <Slider x:Name="BoySlider"
+                            Minimum="100" Maximum="250"
+                            ValueChanged="Slider_ValueChanged"
+                            ThumbColor="#3498DB" MinimumTrackColor="#3498DB"
+                            MaximumTrackColor="#D0D3D4"/>
+                    <!-- Boy değeri etiketi -->
+                    <Label x:Name="BoyLabel" Text="Boy: 100 cm" FontSize="16" HorizontalOptions="Center" TextColor="#555"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- VKİ Hesaplama Sonucu -->
+            <Frame CornerRadius="16" BackgroundColor="White" Padding="15" HasShadow="True">
+                <StackLayout>
+                    <!-- VKİ simgesi -->
+                    <Image Source="vki.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"/>
+                    <!-- VKİ sonucu etiketi -->
+                    <Label x:Name="VKILabel" FontSize="24" TextColor="#27AE60" HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

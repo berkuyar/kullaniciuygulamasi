@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.RenkSeciciPage"
+             Title="Renk Seçme Sayfası"
+             BackgroundColor="Black">
+
+    <!-- ScrollView, içerikleri kaydırılabilir yapmak için kullanılır -->
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+
+            <!-- Büyük siyah kutu içinde tüm öğeler yer alacak -->
+            <Frame BackgroundColor="Black" Padding="20" BorderColor="White" CornerRadius="15" WidthRequest="300">
+                <StackLayout Spacing="20">
+
+                    <!-- Kırmızı Renk Ayarı -->
+                    <Frame BackgroundColor="#333333" Padding="10" CornerRadius="10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <!-- Kırmızı renk ikonunun görseli -->
+                            <Image Source="red.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Center"/>
+                            <!-- Kırmızı renk etiketi -->
+                            <Label Text="Kırmızı (Red)" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                            <!-- Kırmızı renk için slider (kaydırıcı) -->
+                            <Slider x:Name="RedSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"
+                                    ThumbColor="Red" MinimumTrackColor="Red" MaximumTrackColor="#555555"/>
+                            <!-- Kırmızı renk değeri etiketi -->
+                            <Label x:Name="RedLabel" Text="Red: 0" FontSize="16" TextColor="White" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Yeşil Renk Ayarı -->
+                    <Frame BackgroundColor="#333333" Padding="10" CornerRadius="10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <!-- Yeşil renk ikonunun görseli -->
+                            <Image Source="green.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Center"/>
+                            <!-- Yeşil renk etiketi -->
+                            <Label Text="Yeşil (Green)" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                            <!-- Yeşil renk için slider -->
+                            <Slider x:Name="GreenSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"
+                                    ThumbColor="Green" MinimumTrackColor="Green" MaximumTrackColor="#555555"/>
+                            <!-- Yeşil renk değeri etiketi -->
+                            <Label x:Name="GreenLabel" Text="Green: 0" FontSize="16" TextColor="White" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Mavi Renk Ayarı -->
+                    <Frame BackgroundColor="#333333" Padding="10" CornerRadius="10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <!-- Mavi renk ikonunun görseli -->
+                            <Image Source="blue.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Center"/>
+                            <!-- Mavi renk etiketi -->
+                            <Label Text="Mavi (Blue)" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                            <!-- Mavi renk için slider -->
+                            <Slider x:Name="BlueSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"
+                                    ThumbColor="Blue" MinimumTrackColor="Blue" MaximumTrackColor="#555555"/>
+                            <!-- Mavi renk değeri etiketi -->
+                            <Label x:Name="BlueLabel" Text="Blue: 0" FontSize="16" TextColor="White" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Renk Kodu Etiketi -->
+                    <Image Source="palet.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Center"/>
+                    <!-- Renk kodunun gösterileceği etiket -->
+                    <Label x:Name="ColorCodeLabel" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+
+                    <!-- Kopyala Butonu -->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                        <!-- Renk kodunu kopyalamak için buton -->
+                        <Button Text="Kopyala 📑" Clicked="KopyalaButton_Clicked" BackgroundColor="Gray" TextColor="White" FontSize="18" CornerRadius="10"/>
+                    </StackLayout>
+
+                    <!-- Rastgele Renk Butonu -->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                        <!-- Rastgele renk üretmek için buton -->
+                        <Button Text="Rastgele Renk 🔀" Clicked="RastgeleRenkButton_Clicked" BackgroundColor="Gray" TextColor="White" FontSize="18" CornerRadius="10"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
